@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "departures-41b9a": {
+      "hosting": {
+        "zkm": [
+          "departures-41b9a"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "departures-41b9a"
+  }
+}

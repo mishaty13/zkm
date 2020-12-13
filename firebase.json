@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "target": "zkm",
+    "public": "dist/zkm",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

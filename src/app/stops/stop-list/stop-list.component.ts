@@ -21,10 +21,12 @@ export class StopListComponent {
   constructor() {}
 
   stopsFilter() { // Funkcja filtrująca listę przystanków zawierających dane z input użytkownika.
-    this.stopListFiltered = this.stopList.filter( item => 
-      item.stopName.toLocaleLowerCase().
-        includes(this.stopFilter.toLowerCase()) );
-  }
+    this.stopListFiltered = this.stopList.filter( item => (
+      item.stopName.toLocaleLowerCase().includes(this.stopFilter.toLowerCase()) || 
+      item.zoneName.toLocaleLowerCase().includes(this.stopFilter.toLowerCase()) ||
+      item.stopCode.toLocaleLowerCase().includes(this.stopFilter.toLowerCase()) 
+      )
+    )}
 
   // Sortowanie po nazwach przystanków.
   changeSortByName(): void {  // Funkcja reagująca na naciśnięcie pola sortowania przez użytkownika.

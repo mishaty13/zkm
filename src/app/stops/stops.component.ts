@@ -45,7 +45,7 @@ export class StopsComponent implements OnInit {
     });
   }
 
-  // Odświerzanie tablicy. 
+  // Odświeżanie tablicy. 
   startTimer() {
     clearInterval(this.interval); // W przypadku nowych danych oczekiwanie zaczyna się od początku.
     this.interval = setInterval(() => {
@@ -63,7 +63,8 @@ export class StopsComponent implements OnInit {
         if (data) {
           this.currentStopsDepartures = data.delay;
           this.startTimer();
-        } else this.currentStopErrorMsg = { status: "", message: "Nie znaleziono danych." } // W przypadku braku danych błąd.
+        } 
+        else this.currentStopErrorMsg = { status: "", message: "Nie znaleziono danych." } // W przypadku braku danych błąd.
       },
       error: (err) => {this.currentStopErrorMsg = err}
     })
