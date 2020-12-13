@@ -1,0 +1,18 @@
+<div class="row p-4 m-0">
+    <div class="col-lg-7 mb-12">
+        <app-departures-at-stop 
+            [currentStopName]="currentStopName" 
+            [currentStopsDepartures]="currentStopsDepartures"
+            [errorMsg]="currentStopErrorMsg"
+            [refreshTimeInSeconds]="refreshTimeInSeconds"
+        ></app-departures-at-stop>
+    </div>
+
+    <div class="col-lg-5 mb-12">
+        <app-stop-list 
+            (emitStopToDepartures)="showStop($event)"
+            [stopList]="stopList"
+            [errorMsg]="stopListErrorMsg" 
+        ></app-stop-list>        
+    </div>
+</div>

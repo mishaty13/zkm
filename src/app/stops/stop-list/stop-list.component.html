@@ -1,0 +1,43 @@
+<div class=" article-container shadow-sm"> 
+    <h3 class="article-title">Lista wszystkich przystanków</h3>
+    
+    <!-- spinner when loading-->
+    <div *ngIf="!stopList && !errorMsg" class="d-flex justify-content-center">
+        <div class="spinner-border text-light" role="status"></div>
+    </div>
+
+    <!-- stop list -->
+    <ng-container *ngIf="stopList">
+        <p>Data aktualizacji danych przystanków: <span class="text-primary">{{stopListDate}}</span></p>
+
+        <input [(ngModel)]="stopFilter" (keyup)="stopsFilter()" type="text" name="filterInput" placeholder="Szukaj przystanku">
+        
+        <table class="table table-striped table-sm">
+            <tbody>
+                <tr class="text-primary pointer">
+                    <th (click)="changeSortByName()">
+                        <ng-container *ngIf="sortAscendingByName == 1; else: descName">&darr;</ng-container> 
+                        <ng-template #descName>&uarr;</ng-template>
+                        Przystanek
+                        </th>
+                    <th (click)="changeSortByCity()">
+                        <ng-container *ngIf="sortAscendingByCity == 1; else: descCity">&darr;</ng-container> 
+                        <ng-template #descCity>&uarr;</ng-template>                              
+                        Miasto
+                    </th>
+                </tr>
+                <tr *ngFor="let stop of (stopFilter ? stopListFiltered : stopList)">
+                    <td class="font-weight-bold pointer" (click)="emitStopToDepartures.emit(stop.stopId)">{{stop.stopName}}&nbsp;[{{stop.stopCode}}]</td>
+                    <td>{{stop.zoneName}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-container>
+
+    <!-- Error info -->
+    <div *ngIf="errorMsg" class="alert alert-danger" role="alert">
+        <p>Błąd: {{errorMsg.status}}</p>
+        <p>{{errorMsg.message}}</p>
+    </div>
+
+</div> 

@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+$primary:   #b90707
+$secondary: #797979
+$light:     #e6e8ec
+$dark:      #2c2c2c
+    
+@import "node_modules/bootstrap/scss/bootstrap"
+
+body
+    color: $dark
+    font-family: "Myriad Pro"
+    font-stretch: condensed
+    background: $light
+
+a, a:hover
+    color: inherit
+    
+.heading-container
+    background: $primary
+    color: white
+    margin: 0
+    padding: 2em
+    a
+        text-decoration: inherit
+
+.main-container
+    background: white
+    padding: 0
+    min-height: 100vh
+    display: flex
+    flex-direction: column
+
+.footer-container
+    background: $primary
+    color: white
+    margin: 0
+    padding: 2em
+
+.article-container
+    border: $secondary solid 1px
+    padding: 1em
+    padding-top: 1.5em
+    magrin-bottom: 2em
+
+.article-title
+    position: absolute
+    background: $white
+    top: -0.5em
+    left: 0.85em
+    padding: 0 0.25em

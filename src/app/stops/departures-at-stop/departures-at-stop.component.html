@@ -1,0 +1,36 @@
+<div class=" article-container shadow-sm">
+    <h3 class="article-title">Tablica odjazdów</h3>
+    <p>Przystanek: 
+        <span class="text-primary" *ngIf="currentStopName && !errorMsg; else nostop">{{currentStopName}}</span>
+        <ng-template #nostop>
+            <span class="text-secondary">nie wybrano</span>
+        </ng-template>
+    </p>
+    <table class="table table-sm table-striped">
+        <tbody>
+            <tr>
+                <th>Linia</th>
+                <th>Kierunek</th>
+                <th>Przewidywany odjazd</th>
+                <th>Odjazd rozkładowy</th>
+                <th>Numer pojazdu</th>
+            </tr>
+            <ng-container *ngIf="currentStopName">
+                <tr *ngFor="let departure of currentStopsDepartures">
+                    <td class="font-weight-bold">{{departure.routeId}}</td>
+                    <td class="text-primary">{{departure.headsign}}</td>
+                    <td class="font-weight-bold">{{departure.estimatedTime }}</td>
+                    <td>{{departure.theoreticalTime }}</td>
+                    <td class="text-secondary">{{departure.vehicleCode}}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+    <p *ngIf="currentStopName && !errorMsg" class="text-secondary">Tablica odświeża się automatycznie co {{refreshTimeInSeconds}} sekund.</p>
+
+    <!-- Error info -->
+    <div *ngIf="errorMsg " class="alert alert-danger" role="alert">
+        <p>Błąd: {{errorMsg.status}}</p>
+        <p>{{errorMsg.message}}</p>
+    </div>
+</div>
