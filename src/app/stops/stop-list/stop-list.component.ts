@@ -10,6 +10,7 @@ export class StopListComponent {
 
   @Input() stopList: Stop[] = null;
   @Input() errorMsg = null;
+  @Input() stopListDate = null;
   @Output() emitStopToDepartures = new EventEmitter<number>(); 
 
   // Zmienne związane z filtrowaniem tablicy przystanków przez użytkownika.
