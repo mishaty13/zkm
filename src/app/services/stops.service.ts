@@ -51,7 +51,17 @@ export class StopsService {
 
   //  Struktura danych zawiera datę ostaniej aktualizacji oraz tablicę obiektów odjazdów przyporządkowanych do przystanków.
   getStopsDeparturesById(id): Observable<DeparturesList>{
-    return this.httpClient.get<DeparturesList>(this.stopDeparturesUrl + id);
+    return this.httpClient.get<DeparturesList>(this.stopDeparturesUrl + id).pipe(
+      map( data => {
+        data.delay.forEach( item => {
+          if ( +item.routeId >= 401 && +item.routeId <= 499) {  //szukanie linii nocnych w formacie 4xx
+            item.routeId = "N" + (+item.routeId - 400); //zamiana na format Nxx
+          }
+          return item;
+        })
+        return data;
+      })
+    )
   }
 
 }

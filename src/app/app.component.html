@@ -1,33 +1,11 @@
 <div class="container-lg main-container">
     <header class="heading-container">
         <h1 class="m-0">
-            Dynamiczne odjazdy z przystanków w Gdańsku
+            Dynamiczne odjazdy
         </h1>
     </header>
     <div class="p-4 m-0">
-
-        <!-- Informacje o serwisie -->
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-            <strong>Informacje o serwisie.</strong> 
-            <p>
-                Serwis powstał jako ćwiczenie korzystania z zewnętrznych danych przy pomocy REST API. 
-                Wyświetla dynamiczne odjazdy dla danego przystanku wybranego z listy.
-                Czyli, to co oferuje oficjalna strona przewoźnika - z tego powodu serwisu nie ma sensu rozwijać.
-            </p>
-            <p class="mb-0">Wykorzystano:</p>
-                <ul>
-                    <li>Angular 10 wraz z CLI</li>
-                    <li>RxJS</li>
-                    <li>Bootstrap 4 + ng-bootstrap</li>
-                    <li>Dane udostępnione przez ZTM Gdańsk</li>
-                    <li>Hosting Google podłaczony pod domenę OVH</li>
-                </ul>
-                <p>Kod strony: <a href="https://github.com/mishaty13/zkm" target="_blank" class="font-weight-bold">Git</a></p>
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-
+        <app-info></app-info>
         <app-stops></app-stops>
     </div>
     <footer class="footer-container mt-auto">

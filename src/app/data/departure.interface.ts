@@ -10,7 +10,7 @@ export interface Departure{
         delayInSeconds: number,
         estimatedTime: string,      // prognozowany przyjazd HH-MM
         headsign: string,           // kierunek - pole ograniczone do 17 znaków
-        routeId: number,            // linia z zasobu lista linii
+        routeId: string,            // linia z zasobu lista linii. Linie nocne mają format 4xx zamiast Nxx, jest to poprawiane przy pobieraniu
         tripId: number,
         status: string,
         theoreticalTime: string,

@@ -10,10 +10,12 @@ import { AppComponent } from './app.component';
 
 import 'bootstrap';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { InfoComponent } from './info/info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    InfoComponent,
   ],
   imports: [
     BrowserModule,

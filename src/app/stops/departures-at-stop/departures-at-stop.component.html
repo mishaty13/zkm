@@ -1,8 +1,8 @@
 <div class=" article-container shadow-sm">
     <h3 class="article-title">Tablica odjazdów</h3>
     <p>Przystanek: 
-        <span class="text-primary" *ngIf="currentStopName && !errorMsg; else nostop">{{currentStopName}}</span>
-        <ng-template #nostop>
+        <span class="text-primary" *ngIf="currentStopName && !errorMsg; else noStop">{{currentStopName}}</span>
+        <ng-template #noStop>
             <span class="text-secondary">nie wybrano</span>
         </ng-template>
     </p>
@@ -26,6 +26,9 @@
             </ng-container>
         </tbody>
     </table>
+    <ng-container *ngIf="currentStopName && !currentStopsDepartures?.length">
+            <p class="text-primary">Brak odjazdów w ciągu najbliższych 30 minut.</p>
+    </ng-container>
     <p *ngIf="currentStopName && !errorMsg" class="text-secondary">Tablica odświeża się automatycznie co {{refreshTimeInSeconds}} sekund.</p>
 
     <!-- Error info -->
